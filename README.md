@@ -43,9 +43,9 @@ public class SchoolRepository: EfCoreRepository<School>,ISchoolRepository
 ```
 创建上下文，继承BaseDbContext，如果你不需要操作上下文可以不用做这一步
 ```
-public class KingDbContext : BaseDbContext
+public class ChimpDbContext : BaseDbContext
 {
-    public KingDbContext(DbContextOptions options) : base(options)
+    public ChimpDbContext(DbContextOptions options) : base(options)
     {
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -57,16 +57,16 @@ public class KingDbContext : BaseDbContext
 ```
 注入服务
 ```
-services.AddKing<KingDbContext>(
+services.AddChimp<ChimpDbContext>(
                 opt =>
-                opt.UseSqlServer("Server=10.0.0.99;Database=king;Uid=sa;Pwd=Fuluerp123")
+                opt.UseSqlServer("Server=10.0.0.99;Database=chimp;Uid=sa;Pwd=Fuluerp123")
 );
 ```
 如果你没有创建上下文
 ```
-services.AddKing(
+services.AddChimp(
                 opt =>
-                opt.UseSqlServer("Server=10.0.0.99;Database=king;Uid=sa;Pwd=Fuluerp123")
+                opt.UseSqlServer("Server=10.0.0.99;Database=chimp;Uid=sa;Pwd=Fuluerp123")
 );
 ```
 在Controller中使用

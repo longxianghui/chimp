@@ -18,7 +18,7 @@
 #### 使用方法
 引入nuget
 ```
-
+<PackageReference Include="Leo.Chimp" Version="2.1.1" />
 ```
 创建实体对象，继承IEntity
 

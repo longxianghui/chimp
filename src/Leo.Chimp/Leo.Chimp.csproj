@@ -3,10 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageProjectUrl>https://github.com/longxianghui/chimp</PackageProjectUrl>
-    <AssemblyVersion>2.1.1.0</AssemblyVersion>
-    <FileVersion>2.1.1.0</FileVersion>
     <LangVersion>7.3</LangVersion>
-    <Version>2.1.1</Version>
+    <Version>2.1.2</Version>
     <Authors>longxianghui</Authors>
     <Description>ef and dapper repository.</Description>
     <PackageTags>repository;unit of work;ef;dapper;</PackageTags>

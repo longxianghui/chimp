@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp", "src\Leo.Chimp\Leo.Chimp.csproj", "{AE57FE9E-110F-4BBD-AF58-243A37E334C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp.Test", "src\Leo.Chimp.Test\Leo.Chimp.Test.csproj", "{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE57FE9E-110F-4BBD-AF58-243A37E334C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE57FE9E-110F-4BBD-AF58-243A37E334C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE57FE9E-110F-4BBD-AF58-243A37E334C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE57FE9E-110F-4BBD-AF58-243A37E334C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D936E593-6A06-4989-8708-382308D741CF}
+	EndGlobalSection
+EndGlobal

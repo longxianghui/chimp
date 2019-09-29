@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Leo.Chimp\Leo.Chimp.csproj" />
+    <ProjectReference Include="..\..\src\Leo.Chimp\Leo.Chimp.csproj" />
   </ItemGroup>
 
 </Project>

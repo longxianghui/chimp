@@ -207,5 +207,7 @@ _unitOfWork.GetConnection().QueryAsync("select * from school");
 ```
 #### 写在最后
 Chimp核心是基于EF和Dapper的，所以EF和Dapper一切功能都可以使用。比如导航属性，字段映射等等。这个库是线上项目核心依赖，会长期更新维护，希望大家能提出更好的意见。
+
 #### 项目地址
+数据库脚本在根目录的sqlscript文件夹里面  
 [github地址](https://github.com/longxianghui/chimp.git)

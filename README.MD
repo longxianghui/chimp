@@ -1,26 +1,26 @@
-#### ±³¾°
-17Äê¿ªÊ¼£¬¹«Ë¾¿ªÊ¼ÏòDotNet Core×ªĞÍ£¬Ãæ¶ÔORM¹¤¾ßµÄÑ¡ĞÍ£¬µ±Ê±Î§ÈÆDapperºÍEF·¢ÉúÁË¼¤ÁÒµÄÌÖÂÛ¡£ÏîÄ¿ÍÅ¶Ó¸ü¼Ó¹Ø×¢¿ìËÙ½»¸¶£¬ËûÃÇÖ÷ÕÅÊ¹ÓÃEFÕâÖÖÄÜ¿ìËÙ¿ª·¢µÄORM¹¤¾ß;¶øÔÚÏßÒµÎñÍÅ¶Ó¶ÔĞÔÄÜÓĞ¸ü¸ßµÄÒªÇó£¬ËûÃÇ¸üÏ£ÍûÊ¹ÓÃÄÜÖ±½ÓÖ´ĞĞSqlÓï¾äµÄDapperÕâÑù¿É¿ØĞÔ¸ü¸ß¡£¶ø¶ÔÓÚ¼Ü¹¹ÍÅ¶ÓÀ´Ëµ£¬Âú×ã¿ª·¢ÍÅ¶ÓµÄ¸÷ÖÖĞèÇó£¬Ìá¸ßËûÃÇµÄ¿ª·¢Ğ§ÂÊÊÇ×îºËĞÄµÄ¼ÛÖµËùÔÚ£¬ËùÒÔµ±Ê±¾ö¶¨×öÒ»¸ö»ìºÏĞÍµÄ¼ÈÖ§³ÖEFÓÖÖ§³ÖdapperµÄÊı¾İ²Ö´¢¡£
+ï»¿#### èƒŒæ™¯
+17å¹´å¼€å§‹ï¼Œå…¬å¸å¼€å§‹å‘DotNet Coreè½¬å‹ï¼Œé¢å¯¹ORMå·¥å…·çš„é€‰å‹ï¼Œå½“æ—¶å›´ç»•Dapperå’ŒEFå‘ç”Ÿäº†æ¿€çƒˆçš„è®¨è®ºã€‚é¡¹ç›®å›¢é˜Ÿæ›´åŠ å…³æ³¨å¿«é€Ÿäº¤ä»˜ï¼Œä»–ä»¬ä¸»å¼ ä½¿ç”¨EFè¿™ç§èƒ½å¿«é€Ÿå¼€å‘çš„ORMå·¥å…·;è€Œåœ¨çº¿ä¸šåŠ¡å›¢é˜Ÿå¯¹æ€§èƒ½æœ‰æ›´é«˜çš„è¦æ±‚ï¼Œä»–ä»¬æ›´å¸Œæœ›ä½¿ç”¨èƒ½ç›´æ¥æ‰§è¡ŒSqlè¯­å¥çš„Dapperè¿™æ ·å¯æ§æ€§æ›´é«˜ã€‚è€Œå¯¹äºæ¶æ„å›¢é˜Ÿæ¥è¯´ï¼Œæ»¡è¶³å¼€å‘å›¢é˜Ÿçš„å„ç§éœ€æ±‚ï¼Œæé«˜ä»–ä»¬çš„å¼€å‘æ•ˆç‡æ˜¯æœ€æ ¸å¿ƒçš„ä»·å€¼æ‰€åœ¨ï¼Œæ‰€ä»¥å½“æ—¶å†³å®šåšä¸€ä¸ªæ··åˆå‹çš„æ—¢æ”¯æŒEFåˆæ”¯æŒdapperçš„æ•°æ®ä»“å‚¨ã€‚
 
-#### ÎªÊ²Ã´Ñ¡ÔñEF+Dapper
-Ä¿Ç°À´ËµEFºÍDapperÊÇ.NETÆ½Ì¨×îÖ÷Á÷µÄORM¹¤¾ß£¬ÍÅ¶Ó³ÉÔ±µÄ½ÓÊÜ³Ì¶ÈºÜ¸ß£¬Ñ§Ï°³É±¾×îµÍ£¬ÒòÎªÖ÷Ö÷Á÷£¬ËùÒÔÏà¹ØµÄ×ÊÁÏ·Ç³£ÆëÈ«£¬¸÷ÖÖ¿ÓÒ²×îÉÙ¡£
+#### ä¸ºä»€ä¹ˆé€‰æ‹©EF+Dapper
+ç›®å‰æ¥è¯´EFå’ŒDapperæ˜¯.NETå¹³å°æœ€ä¸»æµçš„ORMå·¥å…·ï¼Œå›¢é˜Ÿæˆå‘˜çš„æ¥å—ç¨‹åº¦å¾ˆé«˜ï¼Œå­¦ä¹ æˆæœ¬æœ€ä½ï¼Œå› ä¸ºä¸»ä¸»æµï¼Œæ‰€ä»¥ç›¸å…³çš„èµ„æ–™éå¸¸é½å…¨ï¼Œå„ç§å‘ä¹Ÿæœ€å°‘ã€‚
 
-#### ½éÉÜ
-1. Ëü²»ÊÇÒ»¸öORM¹¤¾ß£¬Ëü²»×öÈÎºÎ¹ØÓÚÊı¾İµ×²ãµÄ²Ù×÷
-2. ËüÊÇÒ»¸ö¼òÒ×·â×°µÄÊı¾İ¿â²Ö´¢ºÍ¹¤×÷µ¥ÔªÄ£ĞÍ
-3. ÄÜ°ïÖúÄã¿ìËÙµÄ¹¹½¨ÏîÄ¿µÄÊı¾İ·ÃÎÊ²ã
-4. ¾­¹ıÁË2Äê¶àÊ±¼ä£¬10¸öÏîÄ¿×é£¬´óĞ¡½ü100¶à¸öÏßÉÏÏîÄ¿µÄ¿¼Ñé
-5. Ö§³ÖEFºÍDapper£¬¿ÉÒÔÔÚÏîÄ¿ÖĞËæÒâÇĞ»»Ê¹ÓÃ
-6. Ö§³Ö¹¤×÷µ¥ÔªÄ£Ê½£¬Ò²Ö§³ÖÊÂÎñ
-7. Ö§³ÖMysqlºÍMssql
-8. Ö§³ÖÍ¬²½ºÍÒì²½²Ù×÷£¬ÍÆ¼öÊ¹ÓÃÒì²½
-> PS: ¼òµ¥²Ù×÷Ê¹ÓÃEF£¬¸´ÔÓsql²Ù×÷Ê¹ÓÃDapperÊÇ¿ìËÙ¿ª·¢µÄÃØ¾÷¡£
+#### ä»‹ç»
+1. å®ƒä¸æ˜¯ä¸€ä¸ªORMå·¥å…·ï¼Œå®ƒä¸åšä»»ä½•å…³äºæ•°æ®åº•å±‚çš„æ“ä½œ
+2. å®ƒæ˜¯ä¸€ä¸ªç®€æ˜“å°è£…çš„æ•°æ®åº“ä»“å‚¨å’Œå·¥ä½œå•å…ƒæ¨¡å‹
+3. èƒ½å¸®åŠ©ä½ å¿«é€Ÿçš„æ„å»ºé¡¹ç›®çš„æ•°æ®è®¿é—®å±‚
+4. ç»è¿‡äº†2å¹´å¤šæ—¶é—´ï¼Œ10ä¸ªé¡¹ç›®ç»„ï¼Œå¤§å°è¿‘100å¤šä¸ªçº¿ä¸Šé¡¹ç›®çš„è€ƒéªŒ
+5. æ”¯æŒEFå’ŒDapperï¼Œå¯ä»¥åœ¨é¡¹ç›®ä¸­éšæ„åˆ‡æ¢ä½¿ç”¨
+6. æ”¯æŒå·¥ä½œå•å…ƒæ¨¡å¼ï¼Œä¹Ÿæ”¯æŒäº‹åŠ¡
+7. æ”¯æŒMysqlå’ŒMssql
+8. æ”¯æŒåŒæ­¥å’Œå¼‚æ­¥æ“ä½œï¼Œæ¨èä½¿ç”¨å¼‚æ­¥
+> PS: ç®€å•æ“ä½œä½¿ç”¨EFï¼Œå¤æ‚sqlæ“ä½œä½¿ç”¨Dapperæ˜¯å¿«é€Ÿå¼€å‘çš„ç§˜è¯€ã€‚
 
-#### Ê¹ÓÃ·½·¨
-ÒıÈënuget
+#### ä½¿ç”¨æ–¹æ³•
+å¼•å…¥nuget
 ```
 <PackageReference Include="Leo.Chimp" Version="2.1.1" />
 ```
-´´½¨ÊµÌå¶ÔÏó£¬¼Ì³ĞIEntity
+åˆ›å»ºå®ä½“å¯¹è±¡ï¼Œç»§æ‰¿IEntity
 
 ```
 public class School : IEntity
@@ -29,7 +29,7 @@ public class School : IEntity
     public string Name { get; set; }
 }
 ```
-´´½¨²Ö´¢½Ó¿ÚºÍÊµÏÖÀà£¬·Ö±ğ¼Ì³ĞIRepositoryºÍEfCoreRepository
+åˆ›å»ºä»“å‚¨æ¥å£å’Œå®ç°ç±»ï¼Œåˆ†åˆ«ç»§æ‰¿IRepositoryå’ŒEfCoreRepository
 ```
 public interface ISchoolRepository : IRepository<School>
 {
@@ -41,7 +41,7 @@ public class SchoolRepository: EfCoreRepository<School>,ISchoolRepository
     }
 }
 ```
-´´½¨ÉÏÏÂÎÄ£¬¼Ì³ĞBaseDbContext£¬Èç¹ûÄã²»ĞèÒª²Ù×÷ÉÏÏÂÎÄ¿ÉÒÔ²»ÓÃ×öÕâÒ»²½
+åˆ›å»ºä¸Šä¸‹æ–‡ï¼Œç»§æ‰¿BaseDbContextï¼Œå¦‚æœä½ ä¸éœ€è¦æ“ä½œä¸Šä¸‹æ–‡å¯ä»¥ä¸ç”¨åšè¿™ä¸€æ­¥
 ```
 public class KingDbContext : BaseDbContext
 {
@@ -55,21 +55,21 @@ public class KingDbContext : BaseDbContext
     }
 }
 ```
-×¢Èë·şÎñ
+æ³¨å…¥æœåŠ¡
 ```
 services.AddKing<KingDbContext>(
                 opt =>
                 opt.UseSqlServer("Server=10.0.0.99;Database=king;Uid=sa;Pwd=Fuluerp123")
 );
 ```
-Èç¹ûÄãÃ»ÓĞ´´½¨ÉÏÏÂÎÄ
+å¦‚æœä½ æ²¡æœ‰åˆ›å»ºä¸Šä¸‹æ–‡
 ```
 services.AddKing(
                 opt =>
                 opt.UseSqlServer("Server=10.0.0.99;Database=king;Uid=sa;Pwd=Fuluerp123")
 );
 ```
-ÔÚControllerÖĞÊ¹ÓÃ
+åœ¨Controllerä¸­ä½¿ç”¨
 ```
 public class ValuesController : ControllerBase
 {
@@ -82,56 +82,56 @@ public class ValuesController : ControllerBase
     }
 }
 ```
-#### ÏêÏ¸Ê¹ÓÃËµÃ÷
-²éÑ¯
+#### è¯¦ç»†ä½¿ç”¨è¯´æ˜
+æŸ¥è¯¢
 ```
-//¸ù¾İÖ÷¼ü²éÑ¯
+//æ ¹æ®ä¸»é”®æŸ¥è¯¢
 _schoolRepository.GetById(Id)
 ```
 ```
-//²»´ø×·×ÙµÄ²éÑ¯£¬·µ»ØÊı¾İ²»ÄÜÓÃÓÚ¸üĞÂ»òÉ¾³ı²Ù×÷£¬ĞÔÄÜ¿ì
+//ä¸å¸¦è¿½è¸ªçš„æŸ¥è¯¢ï¼Œè¿”å›æ•°æ®ä¸èƒ½ç”¨äºæ›´æ–°æˆ–åˆ é™¤æ“ä½œï¼Œæ€§èƒ½å¿«
 schoolRepository.TableNoTracking.First(x => x.Id == Id);
 ```
 ```
-//´ø×·×ÙµÄ²éÑ¯£¬·µ»ØÊı¾İ¿ÉÒÔÓÃÓÚ¸üĞÂ»òÉ¾³ı²Ù×÷£¬ĞÔÄÜÉÔÂı
+//å¸¦è¿½è¸ªçš„æŸ¥è¯¢ï¼Œè¿”å›æ•°æ®å¯ä»¥ç”¨äºæ›´æ–°æˆ–åˆ é™¤æ“ä½œï¼Œæ€§èƒ½ç¨æ…¢
 schoolRepository.Table.First(x => x.Id == Id);
 ```
 ```
-//·ÖÒ³²éÑ¯
+//åˆ†é¡µæŸ¥è¯¢
 _schoolRepository.TableNoTracking.ToPagedList(1,10);
 ```
 ```
-//sqlÓï¾ä²éÑ¯
+//sqlè¯­å¥æŸ¥è¯¢
 _unitOfWork.QueryAsync<School>("select * from school");
 
 ```
 ```
-//sql·ÖÒ³²éÑ¯
+//sqlåˆ†é¡µæŸ¥è¯¢
 _unitOfWork.QueryPagedListAsync<School>(1, 10, "select * from school order by id");
 ```
-> ¹ØÓÚ²éÑ¯£¬±©Â¶ÁË·µ»ØIQueryableµÄTableNoTracking¡¢TableÕâÁ½¸öÊôĞÔ£¬ÈÃ¿ª·¢ÈËÔ±×Ô¼º×é×°Lambda±í´ïÊ½½øĞĞ²éÑ¯²Ù×÷
+> å…³äºæŸ¥è¯¢ï¼Œæš´éœ²äº†è¿”å›IQueryableçš„TableNoTrackingã€Tableè¿™ä¸¤ä¸ªå±æ€§ï¼Œè®©å¼€å‘äººå‘˜è‡ªå·±ç»„è£…Lambdaè¡¨è¾¾å¼è¿›è¡ŒæŸ¥è¯¢æ“ä½œ
 
-ĞÂÔö
+æ–°å¢
 ```
-//ĞÂÔö£¬Ö§³ÖÅúÁ¿ĞÂÔö
+//æ–°å¢ï¼Œæ”¯æŒæ‰¹é‡æ–°å¢
 _schoolRepository.Insert(school);
 _unitOfWork.SaveChanges();
 ```
 ```
-//sqlÓï¾äĞÂÔö
+//sqlè¯­å¥æ–°å¢
 _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
                         school);
 ```
-±à¼­
+ç¼–è¾‘
 ```
-//±à¼­£¬Ö§³ÖÅúÁ¿±à¼­
+//ç¼–è¾‘ï¼Œæ”¯æŒæ‰¹é‡ç¼–è¾‘
 var school = _schoolRepository.GetByIdAsync(Id);
 school.Name="newschool";
 _schoolRepository.Update(school);
 _unitOfWork.SaveChanges();
 ```
 ```
-//±à¼­£¬²»ÓÃÏÈ²éÑ¯
+//ç¼–è¾‘ï¼Œä¸ç”¨å…ˆæŸ¥è¯¢
 var school = new School
 {
     Id = "xxxxxx",
@@ -141,30 +141,30 @@ _schoolRepository.Update(school, x => x.Name);
 _unitOfWork.SaveChanges();
 ```
 ```
-//sqlÓï¾ä±à¼­
+//sqlè¯­å¥ç¼–è¾‘
 _unitOfWork.ExecuteAsync("update school set name=@Name where id=@Id",
                         school);
 ```
-É¾³ı
+åˆ é™¤
 ```
-//É¾³ı£¬Ö§³ÖÅúÁ¿É¾³ı
+//åˆ é™¤ï¼Œæ”¯æŒæ‰¹é‡åˆ é™¤
 _schoolRepository.Delete(school);
 _unitOfWork.SaveChanges();
 ```
 ```
-//¸ù¾İlambdaÉ¾³ı
+//æ ¹æ®lambdaåˆ é™¤
 _schoolRepository.Delete(x => x.Id == Id);
 _unitOfWork.SaveChanges();
 ```
-ÊÂÎñ
+äº‹åŠ¡
 ```
-//¹¤×÷µ¥ÔªÄ£Ê½Ê¹ÓÃÊÂÎñ
+//å·¥ä½œå•å…ƒæ¨¡å¼ä½¿ç”¨äº‹åŠ¡
 await _schoolRepository.InsertAsync(school1);
 await _schoolRepository.InsertAsync(school1);
 await _unitOfWork.SaveChangesAsync();
 ```
 ```
-//dapperÊ¹ÓÃÊÂÎñ
+//dapperä½¿ç”¨äº‹åŠ¡
 using (var tran = _unitOfWork.BeginTransaction())
 {
     try
@@ -182,7 +182,7 @@ using (var tran = _unitOfWork.BeginTransaction())
 }
 ```
 ```
-//dapper+ef»ìºÏÊ¹ÓÃÊÂÎñ
+//dapper+efæ··åˆä½¿ç”¨äº‹åŠ¡
 using (var tran = _unitOfWork.BeginTransaction())
 {
     try
@@ -200,14 +200,14 @@ using (var tran = _unitOfWork.BeginTransaction())
     }
 }
 ```
-¸ß¼¶ÓÃ·¨
+é«˜çº§ç”¨æ³•
 ```
-//Í¨¹ıGetConnection¿ÉÒÔÊ¹ÓÃ¸ü¶àdapperÀ©Õ¹µÄ·½·¨
+//é€šè¿‡GetConnectionå¯ä»¥ä½¿ç”¨æ›´å¤šdapperæ‰©å±•çš„æ–¹æ³•
 _unitOfWork.GetConnection().QueryAsync("select * from school");
 ```
-#### Ğ´ÔÚ×îºó
-ChimpºËĞÄÊÇ»ùÓÚEFºÍDapperµÄ£¬ËùÒÔEFºÍDapperÒ»ÇĞ¹¦ÄÜ¶¼¿ÉÒÔÊ¹ÓÃ¡£±ÈÈçµ¼º½ÊôĞÔ£¬×Ö¶ÎÓ³ÉäµÈµÈ¡£Õâ¸ö¿âÊÇÏßÉÏÏîÄ¿ºËĞÄÒÀÀµ£¬»á³¤ÆÚ¸üĞÂÎ¬»¤£¬Ï£Íû´ó¼ÒÄÜÌá³ö¸üºÃµÄÒâ¼û¡£
+#### å†™åœ¨æœ€å
+Chimpæ ¸å¿ƒæ˜¯åŸºäºEFå’ŒDapperçš„ï¼Œæ‰€ä»¥EFå’ŒDapperä¸€åˆ‡åŠŸèƒ½éƒ½å¯ä»¥ä½¿ç”¨ã€‚æ¯”å¦‚å¯¼èˆªå±æ€§ï¼Œå­—æ®µæ˜ å°„ç­‰ç­‰ã€‚è¿™ä¸ªåº“æ˜¯çº¿ä¸Šé¡¹ç›®æ ¸å¿ƒä¾èµ–ï¼Œä¼šé•¿æœŸæ›´æ–°ç»´æŠ¤ï¼Œå¸Œæœ›å¤§å®¶èƒ½æå‡ºæ›´å¥½çš„æ„è§ã€‚
 
-#### ÏîÄ¿µØÖ·
-Êı¾İ¿â½Å±¾ÔÚ¸ùÄ¿Â¼µÄsqlscriptÎÄ¼ş¼ĞÀïÃæ  
-[githubµØÖ·](https://github.com/longxianghui/chimp.git)
+#### é¡¹ç›®åœ°å€
+æ•°æ®åº“è„šæœ¬åœ¨æ ¹ç›®å½•çš„sqlscriptæ–‡ä»¶å¤¹é‡Œé¢  
+[githubåœ°å€](https://github.com/longxianghui/chimp.git)

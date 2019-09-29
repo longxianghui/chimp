@@ -12,7 +12,7 @@ namespace Leo.Chimp
     public static class PagedListExtensions
     {
         /// <summary>
-        /// 分页查询
+        /// PagedList
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="query"></param>
@@ -24,7 +24,7 @@ namespace Leo.Chimp
             this IQueryable<T> query,
             int pageIndex,
             int pageSize,
-            CancellationToken cancellationToken )
+            CancellationToken cancellationToken = default)
         {
             if (pageIndex < 1)
             {
@@ -36,6 +36,23 @@ namespace Leo.Chimp
             int count = await query.CountAsync(cancellationToken).ConfigureAwait(false);
             List<T> items = await query.Skip(realIndex * pageSize)
                 .Take(pageSize).ToListAsync(cancellationToken).ConfigureAwait(false);
+
+            return new PagedList<T>(items, pageIndex, pageSize, count);
+        }
+        public static  PagedList<T> ToPagedList<T>(
+            this IQueryable<T> query,
+            int pageIndex,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            if (pageIndex < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(pageIndex));
+            }
+            int realIndex = pageIndex - 1;
+            int count = query.Count();
+            List<T> items =  query.Skip(realIndex * pageSize)
+                .Take(pageSize).ToList();
 
             return new PagedList<T>(items, pageIndex, pageSize, count);
         }

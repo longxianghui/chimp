@@ -7,6 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp", "src\Leo.Chimp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp.Test", "src\Leo.Chimp.Test\Leo.Chimp.Test.csproj", "{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leo.Chimp.Example", "src\Leo.Chimp.Example\Leo.Chimp.Example.csproj", "{E911F809-ED33-491F-896D-341EF249303D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leo.Chimp.Domain", "src\Leo.Chimp.Domain\Leo.Chimp.Domain.csproj", "{A1C15DD9-B856-472D-B0DA-BC69750C8736}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A9856CFD-8B10-4C9E-B4B7-E49704894C71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8DC16EBA-2D9F-473A-820E-5A96C35E44F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{98E27906-6784-4538-9CDA-90FDEA7C83EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +31,23 @@ Global
 		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E911F809-ED33-491F-896D-341EF249303D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E911F809-ED33-491F-896D-341EF249303D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E911F809-ED33-491F-896D-341EF249303D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E911F809-ED33-491F-896D-341EF249303D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C15DD9-B856-472D-B0DA-BC69750C8736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C15DD9-B856-472D-B0DA-BC69750C8736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C15DD9-B856-472D-B0DA-BC69750C8736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C15DD9-B856-472D-B0DA-BC69750C8736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE57FE9E-110F-4BBD-AF58-243A37E334C3} = {A9856CFD-8B10-4C9E-B4B7-E49704894C71}
+		{1CF7DFC0-5C7A-4E9C-B5A8-0C9609004F23} = {8DC16EBA-2D9F-473A-820E-5A96C35E44F5}
+		{E911F809-ED33-491F-896D-341EF249303D} = {98E27906-6784-4538-9CDA-90FDEA7C83EF}
+		{A1C15DD9-B856-472D-B0DA-BC69750C8736} = {98E27906-6784-4538-9CDA-90FDEA7C83EF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D936E593-6A06-4989-8708-382308D741CF}

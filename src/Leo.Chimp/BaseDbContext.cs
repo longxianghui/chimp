@@ -22,10 +22,9 @@ namespace Leo.Chimp
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var assemb = GetCurrentPathAssembly();
-            foreach (var assembly in assemb)
+            var assemblies = GetCurrentPathAssembly();
+            foreach (var assembly in assemblies)
             {
-                var assName = assembly.FullName;
                 var entityTypes = assembly.GetTypes()
                     .Where(type => !string.IsNullOrWhiteSpace(type.Namespace))
                     .Where(type => type.IsClass)

@@ -58,6 +58,19 @@ namespace Leo.Chimp.Test
             Assert.True(school != null);
         }
 
+        [Fact]
+        public void PagedList()
+        {
+            var schools = _schoolRepository.TableNoTracking.ToPagedList(1, 10);
+            Assert.True(schools != null);
+        }
+
+        [Fact]
+        public async Task PagedListAsync()
+        {
+            var schools = await _schoolRepository.TableNoTracking.ToPagedListAsync(1, 10);
+            Assert.True(schools != null);
+        }
 
         [Fact]
         public List<School> Inserts()

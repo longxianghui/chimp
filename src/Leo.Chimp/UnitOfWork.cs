@@ -30,34 +30,19 @@ namespace Leo.Chimp
         }
 
 
-        /// <summary>
-        /// 同步提交数据
-        /// </summary>
-        /// <returns>影响行数</returns>
+
         public int SaveChanges()
         {
             return _context.SaveChanges();
         }
 
-        /// <summary>
-        /// 异步提交数据
-        /// </summary>
-        /// <returns>影响行数</returns>
+
         public Task<int> SaveChangesAsync()
         {
             return _context.SaveChangesAsync();
         }
 
-        /// <summary>
-        /// 执行查询SQL语句
-        /// SQL语句禁止拼接字符串，必须使用参数化SQL语句
-        /// ag:await _unitOfWork.QueryAsync`Demo`("select id,name from school where id = @id", new { id = 20044 });
-        /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="sql">sql语句</param>
-        /// <param name="param">参数</param>
-        /// <param name="trans"></param>
-        /// <returns></returns>
+
         public Task<IEnumerable<TEntity>> QueryAsync<TEntity>(string sql, object param = null, IDbContextTransaction trans = null) where TEntity : class
         {
             var conn = GetConnection();
@@ -65,15 +50,7 @@ namespace Leo.Chimp
 
         }
 
-        /// <summary>
-        /// 执行提交SQL语句，自动提交
-        /// SQL语句禁止拼接字符串，必须使用参数化SQL语句
-        /// ag:await _unitOfWork.ExecuteAsync("update school set name =@name where id =@id", new { name = new Random().Next(10000).ToString(), id });
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <param name="param"></param>
-        /// <param name="trans"></param>
-        /// <returns></returns>
+
         public async Task<int> ExecuteAsync(string sql, object param, IDbContextTransaction trans = null)
         {
             var conn = GetConnection();
@@ -107,10 +84,7 @@ namespace Leo.Chimp
             return pagedList;
         }
 
-        /// <summary>
-        /// 开启事务
-        /// </summary>
-        /// <returns></returns>
+
         public IDbContextTransaction BeginTransaction()
         {
             return _context.Database.BeginTransaction();
@@ -127,10 +101,7 @@ namespace Leo.Chimp
             GC.SuppressFinalize(this);
         }
 
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <param name="disposing">The disposing.</param>
+
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposed)
@@ -146,18 +117,6 @@ namespace Leo.Chimp
         public IDbConnection GetConnection()
         {
             return _context.Database.GetDbConnection();
-
-            //var connStr = _kingOptions.Value.ConnectionString;
-            //var dataType = _kingOptions.Value.DbType;
-            //if (dataType == DbType.MYSQL)
-            //{
-            //    return new MySqlConnection(connStr);
-            //}
-            //if (dataType == DbType.MSSQL)
-            //{
-            //    return new SqlConnection(connStr);
-            //}
-            //throw new ArgumentNullException("不支持的数据库类型");
         }
     }
 

@@ -68,6 +68,33 @@ namespace Leo.Chimp.Test
         }
 
         [Fact]
+        public async Task TransactionUseSaveChange()
+        {
+            var school1 = new School
+            {
+                Id = Guid.NewGuid(),
+                Name = "school1"
+            };
+
+            var school2 = new School
+            {
+                Id = Guid.NewGuid(),
+                Name = "school2"
+            };
+
+            await _schoolRepository.InsertAsync(school1);
+            await _schoolRepository.InsertAsync(school2);
+            await _unitOfWork.SaveChangesAsync();
+
+            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
+                new { Id = school1.Id });
+            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
+                new { Id = school2.Id });
+            Assert.True(newSchool1.Any() && newSchool2.Any());
+
+        }
+
+        [Fact]
         public async Task Transaction()
         {
             var school1 = new School
@@ -87,9 +114,9 @@ namespace Leo.Chimp.Test
                 try
                 {
                     await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                        school1);
+                        school1, tran);
                     await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                        school2);
+                        school2, tran);
                     throw new Exception();
                     tran.Commit();
                 }
@@ -98,9 +125,9 @@ namespace Leo.Chimp.Test
                     tran.Rollback();
                 }
             }
-            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
+            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school1.Id });
-            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
+            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school2.Id });
             Assert.False(newSchool1.Any() || newSchool2.Any());
 
@@ -128,7 +155,7 @@ namespace Leo.Chimp.Test
                     await _unitOfWork.SaveChangesAsync();
 
                     await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                        school2);
+                        school2, tran);
                     throw new Exception();
                     tran.Commit();
                 }

@@ -10,14 +10,14 @@ using Xunit;
 namespace Leo.Chimp.Test
 {
 
-    public class KingDbContextTest 
+    public class ChimpDbContextTest 
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ISchoolRepository _schoolRepository;
-        public KingDbContextTest()
+        public ChimpDbContextTest()
         {
             var services = new ServiceCollection();
-            services.AddKing<KingDbContext>(opt =>
+            services.AddChimp<ChimpDbContext>(opt =>
             {
                 opt.UseMySql("server = 10.0.0.146;database=king;uid=root;password=123456;");
             });

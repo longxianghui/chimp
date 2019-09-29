@@ -13,7 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection AddKing(this IServiceCollection services,
+        public static IServiceCollection AddChimp(this IServiceCollection services,
             Action<DbContextOptionsBuilder> options)
         {
             services.AddDbContext<BaseDbContext>(options);
@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
             AddDefault(services);
             return services;
         }
-        public static IServiceCollection AddKing<T>(this IServiceCollection services,
+        public static IServiceCollection AddChimp<T>(this IServiceCollection services,
             Action<DbContextOptionsBuilder> options) where T : BaseDbContext
         {
             services.AddDbContext<T>(options);

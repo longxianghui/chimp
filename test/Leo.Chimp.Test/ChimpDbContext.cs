@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Leo.Chimp.Test
 {
-    public class KingDbContext : BaseDbContext
+    public class ChimpDbContext : BaseDbContext
     {
-        public KingDbContext(DbContextOptions options) : base(options)
+        public ChimpDbContext(DbContextOptions options) : base(options)
         {
         }
 

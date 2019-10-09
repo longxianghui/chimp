@@ -14,9 +14,9 @@ CREATE TABLE `school` (
 -- ----------------------------
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
-  `Id` varchar(50) NOT NULL,
+  `Id` char(36) NOT NULL,
   `Name` varchar(255) DEFAULT NULL,
-  `SchoolId` int(11) DEFAULT NULL,
+  `SchoolId` char(36) DEFAULT NULL,
   `Birthday` datetime DEFAULT NULL,
   PRIMARY KEY (`Id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

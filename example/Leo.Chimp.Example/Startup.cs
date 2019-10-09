@@ -28,7 +28,7 @@ namespace Leo.Chimp.Example
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddChimp<ChimpDbContext>(
-                opt => opt.UseSqlServer("Server=10.0.0.99;Database=king;Uid=sa;Pwd=Fuluerp123")
+                opt => opt.UseSqlServer("Server=10.0.0.99;Database=Chimp;Uid=sa;Pwd=Fuluerp123")
             );
         }
 

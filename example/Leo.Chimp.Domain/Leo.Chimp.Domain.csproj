@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Leo.Chimp\Leo.Chimp.csproj" />
+  </ItemGroup>
+
   
 
 </Project>

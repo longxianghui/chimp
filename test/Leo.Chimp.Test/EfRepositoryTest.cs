@@ -24,12 +24,12 @@ namespace Leo.Chimp.Test
 
             services.AddChimp(opt =>
             {
-                opt.UseMySql("server = 10.0.0.146;database=king;uid=root;password=123456;");
+                opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;");
             });
 
             //services.AddChimp(opt =>
             //{
-            //    opt.UseSqlServer("Server=10.0.0.99;Database=king;Uid=sa;Pwd=Fuluerp123");
+            //    opt.UseSqlServer("Server=10.0.0.99;Database=chimp;Uid=sa;Pwd=Fuluerp123");
             //});
             var sp = services.BuildServiceProvider();
             _unitOfWork = sp.GetRequiredService<IUnitOfWork>();

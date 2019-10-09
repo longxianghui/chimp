@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Leo.Chimp.Domain
 {
-    public class KingDbContext : BaseDbContext
+    public class ChimpDbContext : BaseDbContext
     {
-        public KingDbContext(DbContextOptions options) : base(options)
+        public ChimpDbContext(DbContextOptions options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

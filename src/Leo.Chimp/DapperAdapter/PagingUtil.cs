@@ -11,7 +11,7 @@ namespace Leo.Chimp.DapperAdapter
         private static readonly Regex _rexSelect = new Regex(@"^\s*SELECT\s+(.+?)\sFROM\s", RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
 
         private static readonly Regex _rexSelect1 = new Regex(@"^\s*SELECT\s+(.+?)\sFROM\s*\(+\s*", RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
-        private static readonly Regex _rexOrderBy = new Regex(@"\s+ORDER\s+BY\s+([^\s]+(?:\s+ASC|\s+DESC)?)\s*$", RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
+        private static readonly Regex _rexOrderBy = new Regex(@"\s+ORDER\s+BY\s+(([^\s]+(?:\s+ASC|\s+DESC)?)+)\s*$", RegexOptions.IgnoreCase | RegexOptions.Singleline | RegexOptions.Compiled);
 
         /// <summary>
         /// 分割SQL

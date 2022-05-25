@@ -134,16 +134,7 @@ school.Name="newschool";
 _schoolRepository.Update(school);
 _unitOfWork.SaveChanges();
 ```
-```
-//编辑，不用先查询
-var school = new School
-{
-    Id = "xxxxxx",
-    Name = "newschool"
-};
-_schoolRepository.Update(school, x => x.Name);
-_unitOfWork.SaveChanges();
-```
+
 ```
 //sql语句编辑
 _unitOfWork.ExecuteAsync("update school set name=@Name where id=@Id",

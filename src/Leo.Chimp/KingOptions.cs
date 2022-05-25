@@ -19,8 +19,7 @@ namespace Leo.Chimp
     public enum DbType
     {
         MSSQL,
-        MYSQL,
-        SQLITE
+        MYSQL
     }
 
 }

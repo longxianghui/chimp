@@ -1,23 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <PackageProjectUrl>https://github.com/luodaoyi/chimp</PackageProjectUrl>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/longxianghui/chimp</PackageProjectUrl>
     <LangVersion>7.3</LangVersion>
-    <Version>3.0.0</Version>
-    <Authors>luodaoyi</Authors>
+    <Version>2.1.2</Version>
+    <Authors>longxianghui</Authors>
     <Description>ef and dapper repository.</Description>
     <PackageTags>repository;unit of work;ef;dapper;</PackageTags>
-    <RepositoryUrl>https://github.com/luodaoyi/chimp</RepositoryUrl>
+    <RepositoryUrl>https://github.com/longxianghui/chimp</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.35" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.6" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.2" />
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
   </ItemGroup>
 
 </Project>

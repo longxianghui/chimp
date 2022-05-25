@@ -14,15 +14,14 @@ namespace Leo.Chimp.Test
 {
     public class DapperTest
     {
-        private readonly DbType dbType;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ISchoolRepository _schoolRepository;
 
         public DapperTest()
         {
             var services = new ServiceCollection();
-            dbType = DbType.MYSQL;
-            InitChimpTestDb.Start(services, dbType);
+            services.AddChimp(opt => { opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;"); });
+            //services.AddChimp(opt => { opt.UseSqlServer("Server=10.0.0.99;Database=chimp;Uid=sa;Pwd=Fuluerp123"); });
             var sp = services.BuildServiceProvider();
             _unitOfWork = sp.GetRequiredService<IUnitOfWork>();
             _schoolRepository = sp.GetRequiredService<ISchoolRepository>();
@@ -48,20 +47,13 @@ namespace Leo.Chimp.Test
             var school = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_ExecuteAsync_school"
+                Name = "school"
             };
-            if (dbType == DbType.SQLITE)
-            {
-                await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
-                    school);
-            }
-            else
-            {
-                await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                    school);
-            }
 
-            var newSchool = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
+            await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                school);
+
+            var newSchool = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
                 new { Id = school.Id });
 
             Assert.True(school.Name == newSchool.First().Name);
@@ -81,24 +73,24 @@ namespace Leo.Chimp.Test
             var school1 = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_TransactionUseSaveChange_school1"
+                Name = "school1"
             };
 
             var school2 = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_TransactionUseSaveChange_school2"
+                Name = "school2"
             };
 
             await _schoolRepository.InsertAsync(school1);
             await _schoolRepository.InsertAsync(school2);
             await _unitOfWork.SaveChangesAsync();
 
-            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where Id=@Id",
+            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school1.Id });
-            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where Id=@Id",
+            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school2.Id });
-           Assert.True(newSchool1.Any() && newSchool2.Any());
+            Assert.True(newSchool1.Any() && newSchool2.Any());
 
         }
 
@@ -108,33 +100,23 @@ namespace Leo.Chimp.Test
             var school1 = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_Transaction_school1"
+                Name = "school1"
             };
 
             var school2 = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_Transaction_school2"
+                Name = "school2"
             };
 
             using (var tran = _unitOfWork.BeginTransaction())
             {
                 try
                 {
-                    if (dbType == DbType.SQLITE)
-                    {
-                        await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
-                            school1, tran);
-                        await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
-                            school2, tran);
-                    }
-                    else
-                    {
-                        await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                            school1, tran);
-                        await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                            school2, tran);
-                    }
+                    await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                        school1, tran);
+                    await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                        school2, tran);
                     throw new Exception();
                     tran.Commit();
                 }
@@ -157,13 +139,13 @@ namespace Leo.Chimp.Test
             var school1 = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_HybridTransaction_school1"
+                Name = "school1"
             };
 
             var school2 = new School
             {
                 Id = Guid.NewGuid(),
-                Name = "Dapper_HybridTransaction_school2"
+                Name = "school2"
             };
             using (var tran = _unitOfWork.BeginTransaction())
             {
@@ -171,16 +153,9 @@ namespace Leo.Chimp.Test
                 {
                     await _schoolRepository.InsertAsync(school1);
                     await _unitOfWork.SaveChangesAsync();
-                    if (dbType == DbType.SQLITE) 
-                    {
-                        await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                            school2, tran);
-                    }
-                    else 
-                    {
-                        await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
-                            school2, tran);
-                    }
+
+                    await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                        school2, tran);
                     throw new Exception();
                     tran.Commit();
                 }
@@ -189,9 +164,9 @@ namespace Leo.Chimp.Test
                     tran.Rollback();
                 }
             }
-            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
+            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
                 new { Id = school1.Id });
-            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
+            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
                 new { Id = school2.Id });
             Assert.False(newSchool1.Any() || newSchool2.Any());
         }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,7 +31,7 @@ namespace Leo.Chimp
 
             return Entities.Find(id);
         }
-        public ValueTask<TEntity> GetByIdAsync(object id)
+        public Task<TEntity> GetByIdAsync(object id)
         {
             if (id == null)
                 throw new ArgumentNullException("id");
@@ -57,7 +56,7 @@ namespace Leo.Chimp
             Entities.AddRange(entities);
         }
 
-        public ValueTask<EntityEntry<TEntity>> InsertAsync(TEntity entity)
+        public Task InsertAsync(TEntity entity)
         {
             if (entity == null)
                 throw new ArgumentNullException("entity");

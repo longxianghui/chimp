@@ -71,11 +71,9 @@ namespace Leo.Chimp
             ISqlAdapter sqlAdapter = null;
             if (_context.Database.IsMySql())
                 sqlAdapter = new MysqlAdapter();
-            else if(_context.Database.IsSqlServer())
+            if (_context.Database.IsSqlServer())
                 sqlAdapter = new SqlServerAdapter();
-            else if(_context.Database.IsSqlite())
-                sqlAdapter = new SqliteAdapter();
-            else
+            if (sqlAdapter == null)
                 throw new Exception("Unsupported database type");
             pageSql = sqlAdapter.PagingBuild(ref partedSql, pageSqlArgs, (pageIndex - 1) * pageSize, pageSize);
             var sqlCount = PagingUtil.GetCountSql(partedSql);

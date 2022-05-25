@@ -171,21 +171,6 @@ namespace Leo.Chimp.Test
                 }
             }
         }
-        [Fact]
-        public void UpdateNoSelect()
-        {
-            var data = Insert();
-            var school = new School
-            {
-                Id = data.Id,
-                Name = Guid.NewGuid().ToString()
-            };
-            _schoolRepository.Update(school, x => x.Name);
-            _unitOfWork.SaveChanges();
-            //这里不能使用 _schoolRepository.GetById(data.Id); 查询出来的结果和数据库不一致
-            var newSchool = _schoolRepository.TableNoTracking.First(x => x.Id == data.Id);
-            Assert.True(newSchool.Name == school.Name);
-        }
 
 
         [Fact]

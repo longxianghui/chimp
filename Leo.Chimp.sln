@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp", "src\Leo.Chimp\Leo.Chimp.csproj", "{AE57FE9E-110F-4BBD-AF58-243A37E334C3}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp.Example", "exampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp.Domain", "example\Leo.Chimp.Domain\Leo.Chimp.Domain.csproj", "{1216801F-2F9A-423D-9460-E3D301496533}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp.Test", "test\Leo.Chimp.Test\Leo.Chimp.Test.csproj", "{ACAEE484-293F-4F82-B8D6-269A00FDBB57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leo.Chimp.Test", "test\Leo.Chimp.Test\Leo.Chimp.Test.csproj", "{1B160D6D-A698-4465-9F9F-768D7248AB3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{1216801F-2F9A-423D-9460-E3D301496533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1216801F-2F9A-423D-9460-E3D301496533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1216801F-2F9A-423D-9460-E3D301496533}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACAEE484-293F-4F82-B8D6-269A00FDBB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACAEE484-293F-4F82-B8D6-269A00FDBB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACAEE484-293F-4F82-B8D6-269A00FDBB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACAEE484-293F-4F82-B8D6-269A00FDBB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B160D6D-A698-4465-9F9F-768D7248AB3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B160D6D-A698-4465-9F9F-768D7248AB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B160D6D-A698-4465-9F9F-768D7248AB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B160D6D-A698-4465-9F9F-768D7248AB3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,7 +47,7 @@ Global
 		{AE57FE9E-110F-4BBD-AF58-243A37E334C3} = {A9856CFD-8B10-4C9E-B4B7-E49704894C71}
 		{22CF40A1-EE7E-4EBA-A502-5C5FC0D0758B} = {98E27906-6784-4538-9CDA-90FDEA7C83EF}
 		{1216801F-2F9A-423D-9460-E3D301496533} = {98E27906-6784-4538-9CDA-90FDEA7C83EF}
-		{ACAEE484-293F-4F82-B8D6-269A00FDBB57} = {8DC16EBA-2D9F-473A-820E-5A96C35E44F5}
+		{1B160D6D-A698-4465-9F9F-768D7248AB3B} = {8DC16EBA-2D9F-473A-820E-5A96C35E44F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D936E593-6A06-4989-8708-382308D741CF}

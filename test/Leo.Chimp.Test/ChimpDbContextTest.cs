@@ -17,6 +17,7 @@ namespace Leo.Chimp.Test
         public ChimpDbContextTest()
         {
             var services = new ServiceCollection();
+
             services.AddChimp<ChimpDbContext>(opt =>
             {
                 opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;");

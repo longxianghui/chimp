@@ -5,8 +5,7 @@ using System.Reflection;
 using System.Text;
 using Leo.Chimp;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyModel;
-using Newtonsoft.Json;
+
 
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -29,6 +28,15 @@ namespace Microsoft.Extensions.DependencyInjection
             AddDefault(services);
             return services;
         }
+
+
+#if NETSTANDARD2_1 || NET6_0
+        public static DbContextOptionsBuilder UseMySql(this DbContextOptionsBuilder optionsBuilder, string connectionString)
+        {
+            optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            return optionsBuilder;
+        }
+#endif
 
         #region private function
         private static void AddDefault(IServiceCollection services)
@@ -67,6 +75,9 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return services;
         }
-        #endregion
+
+
+
     }
+    #endregion
 }

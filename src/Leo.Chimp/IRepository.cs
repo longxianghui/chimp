@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Leo.Chimp
 {
@@ -56,6 +57,7 @@ namespace Leo.Chimp
         /// </summary>
         /// <param name="entities">Inserted entity</param>
         void Insert(IEnumerable<TEntity> entities);
+
         /// <summary>
         /// 添加实体
         /// </summary>
@@ -82,13 +84,6 @@ namespace Leo.Chimp
         /// <param name="entities"></param>
         void Update(IEnumerable<TEntity> entities);
 
-        /// <summary>
-        /// Update
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="properties">Action that can be used to change values of the entity</param>
-        /// <returns>Updated entity</returns>
-        void Update(TEntity entity, params Expression<Func<TEntity, object>>[] properties);
         #endregion
 
         #region Delete

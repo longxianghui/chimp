@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,6 +32,8 @@ namespace Leo.Chimp
 
             return Entities.Find(id);
         }
+
+#if NETSTANDARD2_0
         public Task<TEntity> GetByIdAsync(object id)
         {
             if (id == null)
@@ -38,7 +41,16 @@ namespace Leo.Chimp
 
             return Entities.FindAsync(id);
         }
+#endif
+#if NETSTANDARD2_1  || NET6_0
+        public Task<TEntity> GetByIdAsync(object id)
+        {
+            if (id == null)
+                throw new ArgumentNullException("id");
 
+            return Entities.FindAsync(id).AsTask();
+        }
+#endif
 
         public void Insert(TEntity entity)
         {
@@ -48,6 +60,7 @@ namespace Leo.Chimp
             Entities.Add(entity);
         }
 
+
         public void Insert(IEnumerable<TEntity> entities)
         {
             if (!entities.Any())
@@ -55,7 +68,7 @@ namespace Leo.Chimp
 
             Entities.AddRange(entities);
         }
-
+#if NETSTANDARD2_0
         public Task InsertAsync(TEntity entity)
         {
             if (entity == null)
@@ -63,6 +76,17 @@ namespace Leo.Chimp
 
             return Entities.AddAsync(entity);
         }
+#endif
+#if NETSTANDARD2_1 || NET6_0
+        public  Task InsertAsync(TEntity entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException("entity");
+
+           return  Entities.AddAsync(entity).AsTask();
+              
+        }
+#endif
 
         public Task InsertAsync(IEnumerable<TEntity> entities)
         {
@@ -90,19 +114,6 @@ namespace Leo.Chimp
 
         }
 
-        public void Update(TEntity entity, params Expression<Func<TEntity, object>>[] properties)
-        {
-            foreach (var property in properties)
-            {
-                var propertyName = property.Name;
-                if (string.IsNullOrEmpty(propertyName))
-                {
-                    propertyName = GetPropertyName(property.Body.ToString());
-                }
-                _context.Entry(entity).Property(propertyName).IsModified = true;
-
-            }
-        }
 
         string GetPropertyName(string str)
         {
@@ -134,7 +145,7 @@ namespace Leo.Chimp
             _context.RemoveRange(Entities.Where(predicate));
         }
 
-        #region Properties
+#region Properties
 
         /// <summary>
         /// Gets a table
@@ -151,7 +162,7 @@ namespace Leo.Chimp
         /// </summary>
         protected virtual DbSet<TEntity> Entities => _entities ?? (_entities = _context.Set<TEntity>());
 
-        #endregion
+#endregion
         private void AttachIfNot(TEntity entity)
         {
             var entry = _context.ChangeTracker.Entries().FirstOrDefault(ent => ent.Entity == entity);
@@ -161,5 +172,7 @@ namespace Leo.Chimp
             }
             _context.Attach(entity);
         }
+
+       
     }
 }

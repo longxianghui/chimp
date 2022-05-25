@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Query;
 
 namespace Leo.Chimp
@@ -30,7 +31,7 @@ namespace Leo.Chimp
         /// </summary>
         /// <param name="id">主键</param>
         /// <returns>Entity</returns>
-        Task<TEntity> GetByIdAsync(object id);
+        ValueTask<TEntity> GetByIdAsync(object id);
 
         /// <summary>
         /// Table Tracking
@@ -60,7 +61,7 @@ namespace Leo.Chimp
         /// 添加实体
         /// </summary>
         /// <param name="entity">Inserted entity</param>
-        Task InsertAsync(TEntity entity);
+        ValueTask<EntityEntry<TEntity>> InsertAsync(TEntity entity);
 
         /// <summary>
         /// InsertAsync

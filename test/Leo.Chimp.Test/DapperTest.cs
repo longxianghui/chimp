@@ -20,8 +20,7 @@ namespace Leo.Chimp.Test
         public DapperTest()
         {
             var services = new ServiceCollection();
-            services.AddChimp(opt => { opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;"); });
-            //services.AddChimp(opt => { opt.UseSqlServer("Server=10.0.0.99;Database=chimp;Uid=sa;Pwd=Fuluerp123"); });
+            InitChimpTestDb.Start(services);
             var sp = services.BuildServiceProvider();
             _unitOfWork = sp.GetRequiredService<IUnitOfWork>();
             _schoolRepository = sp.GetRequiredService<ISchoolRepository>();
@@ -50,10 +49,10 @@ namespace Leo.Chimp.Test
                 Name = "school"
             };
 
-            await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+            await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
                 school);
 
-            var newSchool = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
+            var newSchool = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school.Id });
 
             Assert.True(school.Name == newSchool.First().Name);
@@ -91,7 +90,6 @@ namespace Leo.Chimp.Test
             var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school2.Id });
             Assert.True(newSchool1.Any() && newSchool2.Any());
-
         }
 
         [Fact]
@@ -113,9 +111,9 @@ namespace Leo.Chimp.Test
             {
                 try
                 {
-                    await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                    await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
                         school1, tran);
-                    await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                    await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
                         school2, tran);
                     throw new Exception();
                     tran.Commit();
@@ -154,7 +152,7 @@ namespace Leo.Chimp.Test
                     await _schoolRepository.InsertAsync(school1);
                     await _unitOfWork.SaveChangesAsync();
 
-                    await _unitOfWork.ExecuteAsync("insert school(id,name) values(@Id,@Name)",
+                    await _unitOfWork.ExecuteAsync("insert into school(id,name) values(@Id,@Name)",
                         school2, tran);
                     throw new Exception();
                     tran.Commit();
@@ -164,9 +162,9 @@ namespace Leo.Chimp.Test
                     tran.Rollback();
                 }
             }
-            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
+            var newSchool1 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school1.Id });
-            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@id",
+            var newSchool2 = await _unitOfWork.QueryAsync<School>("select * from school where id =@Id",
                 new { Id = school2.Id });
             Assert.False(newSchool1.Any() || newSchool2.Any());
         }

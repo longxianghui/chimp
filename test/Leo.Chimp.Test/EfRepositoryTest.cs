@@ -24,8 +24,7 @@ namespace Leo.Chimp.Test
 
             services.AddChimp(opt =>
             {
-                //opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;");
-                opt.UseMySql("Server=192.168.5.5;Database=Chimp;Uid=root;Pwd='luodaoyi';SslMode=none");
+                opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;");
             });
 
             //services.AddChimp(opt =>
@@ -43,7 +42,7 @@ namespace Leo.Chimp.Test
         {
             var school = new School
             {
-                Name = $"EF_Insert_{Guid.NewGuid()}",
+                Name = Guid.NewGuid().ToString(),
                 Id = Guid.NewGuid()
             };
             _schoolRepository.Insert(school);
@@ -82,7 +81,7 @@ namespace Leo.Chimp.Test
                 var school = new School
                 {
                     Id = Guid.NewGuid(),
-                    Name = $"EF_Inserts_{Guid.NewGuid()}",
+                    Name = Guid.NewGuid().ToString()
                 };
                 schools.Add(school);
             }
@@ -105,7 +104,7 @@ namespace Leo.Chimp.Test
             var school = new School
             {
                 Id = Guid.NewGuid(),
-                Name = $"EF_InsertAsync_{Guid.NewGuid()}"
+                Name = Guid.NewGuid().ToString()
             };
             await _schoolRepository.InsertAsync(school);
             await _unitOfWork.SaveChangesAsync();
@@ -125,13 +124,12 @@ namespace Leo.Chimp.Test
         public async Task InsertsAsync()
         {
             var schools = new List<School>();
-             
             for (int i = 0; i < 100; i++)
             {
                 var school = new School
                 {
                     Id = Guid.NewGuid(),
-                    Name = $"{"EF_InsertsAsync_"}_{i}"
+                    Name = Guid.NewGuid().ToString()
                 };
                 schools.Add(school);
             }
@@ -151,7 +149,7 @@ namespace Leo.Chimp.Test
         public void Update()
         {
             var school = Insert();
-            school.Name = $"EF_Update_{Guid.NewGuid()}";
+            school.Name = Guid.NewGuid().ToString();
             _schoolRepository.Update(school);
             _unitOfWork.SaveChanges();
         }
@@ -177,26 +175,16 @@ namespace Leo.Chimp.Test
         public void UpdateNoSelect()
         {
             var data = Insert();
-            // 这里要使用相同的对象来Update, 如果重新new了一个对象 哪怕id相同 那么efcore 3则会认为不是同一个对象 就会报错:
-            // System.InvalidOperationException : The instance of entity type 'School' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
-
-            // 错误示范:
-            /*
             var school = new School
             {
                 Id = data.Id,
                 Name = Guid.NewGuid().ToString()
             };
             _schoolRepository.Update(school, x => x.Name);
-            */
-
-            data.Name = $"EF_UpdateNoSelect_{Guid.NewGuid()}";
-
-            _schoolRepository.Update(data, x => x.Name);
             _unitOfWork.SaveChanges();
             //这里不能使用 _schoolRepository.GetById(data.Id); 查询出来的结果和数据库不一致
             var newSchool = _schoolRepository.TableNoTracking.First(x => x.Id == data.Id);
-            Assert.True(newSchool.Name == data.Name);
+            Assert.True(newSchool.Name == school.Name);
         }
 
 
@@ -230,14 +218,6 @@ namespace Leo.Chimp.Test
             _schoolRepository.Insert(schools);
             _unitOfWork.SaveChanges();
 
-            foreach (var item in schools)
-            {
-                var school = _schoolRepository.GetById(item.Id);
-                if (school == null)
-                {
-                    Assert.True(false);
-                }
-            }
             _schoolRepository.Delete(schools);
             _unitOfWork.SaveChanges();
 

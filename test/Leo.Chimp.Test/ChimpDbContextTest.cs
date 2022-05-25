@@ -12,15 +12,15 @@ namespace Leo.Chimp.Test
 
     public class ChimpDbContextTest 
     {
-        private readonly DbType dbType;
-
         private readonly IUnitOfWork _unitOfWork;
         private readonly ISchoolRepository _schoolRepository;
         public ChimpDbContextTest()
         {
             var services = new ServiceCollection();
-            dbType = DbType.MYSQL;
-            InitChimpTestDb.Start(services, dbType);
+            services.AddChimp<ChimpDbContext>(opt =>
+            {
+                opt.UseMySql("server = 10.0.0.146;database=chimp;uid=root;password=123456;");
+            });
             var sp = services.BuildServiceProvider();
             _unitOfWork = sp.GetRequiredService<IUnitOfWork>();
             _schoolRepository = sp.GetRequiredService<ISchoolRepository>();
